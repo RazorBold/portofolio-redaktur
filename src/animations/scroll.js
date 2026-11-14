@@ -37,6 +37,7 @@ export function initScroll({ reduced, fine, lenis }) {
   about();
   lead();
   works();
+  cases();
   journey();
   pubs();
   contact();
@@ -79,6 +80,76 @@ function works() {
   $$('.clip').forEach((c, i) => {
     gsap.from(c, { y: 80, rotate: i % 2 ? -14 : 14, opacity: 0, duration: 1.2, ease: 'back.out(1.6)', delay: i * 0.12, scrollTrigger: { trigger: '.clips', start: 'top 82%' } });
   });
+}
+
+// Angka berjalan dengan format Indonesia (titik ribuan, koma desimal)
+function countUp(el, trigger) {
+  const end = +el.dataset.num;
+  const dec = +(el.dataset.dec || 0);
+  const o = { v: 0 };
+  gsap.to(o, {
+    v: end, duration: 1.8, ease: 'power2.out',
+    onUpdate: () => (el.textContent = o.v.toLocaleString('id-ID', { minimumFractionDigits: dec, maximumFractionDigits: dec })),
+    scrollTrigger: { trigger, start: 'top 85%' },
+  });
+}
+
+// Garis SVG tergambar dari ujung ke ujung (tanpa plugin DrawSVG)
+function draw(paths, vars) {
+  paths.forEach((p) => { const len = p.getTotalLength(); gsap.set(p, { strokeDasharray: len, strokeDashoffset: len }); });
+  return gsap.to(paths, { strokeDashoffset: 0, ...vars });
+}
+
+function cases() {
+  const on = (trigger, start = 'top 80%') => ({ trigger, start });
+  $$('[data-tag]').forEach((t) => gsap.from(t, { x: -40, opacity: 0, duration: 0.9, ease: 'expo.out', scrollTrigger: on(t, 'top 88%') }));
+  if (window.matchMedia('(min-width: 1181px)').matches) {
+    gsap.from('[data-cases-photo]', { clipPath: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)', duration: 1.6, ease: 'expo.inOut', scrollTrigger: on('.cases__head', 'top 75%') });
+  }
+
+  // Panel diletakkan satu per satu, judul panel menyusul dari kiri
+  $$('.case').forEach((c) => {
+    gsap.from($$('.panel', c), { y: 60, opacity: 0, duration: 1.2, ease: 'expo.out', stagger: 0.12, scrollTrigger: on($('.panel', c), 'top 88%') });
+  });
+  $$('.panel__tab').forEach((t) => gsap.from(t, { x: -24, opacity: 0, duration: 0.9, ease: 'expo.out', delay: 0.3, scrollTrigger: on(t, 'top 88%') }));
+
+  // Peta: garis pantai tergambar, daratan terisi, lalu titik kota muncul
+  $$('.map').forEach((m) => {
+    const tl = gsap.timeline({ scrollTrigger: on(m, 'top 70%') });
+    tl.add(draw($$('.map__land', m), { duration: 1.6, ease: 'power2.inOut' }), 0)
+      .from($$('.map__land', m), { fillOpacity: 0, duration: 0.8, ease: 'power1.out' }, 0.9)
+      .from($$('.place__mark', m), { scale: 0, transformOrigin: '50% 50%', duration: 0.5, ease: 'back.out(3)', stagger: 0.06 }, 1.1)
+      .from($$('.place__name', m), { opacity: 0, x: -4, duration: 0.5, stagger: 0.06 }, 1.2);
+  });
+
+  // Grafik: garis tumbuh ke kanan, titik dan label menyusul
+  $$('.chart').forEach((c) => {
+    const tl = gsap.timeline({ scrollTrigger: on(c, 'top 80%') });
+    tl.add(draw($$('.chart__line', c), { duration: 1.8, ease: 'power2.inOut' }), 0)
+      .from($$('.chart__pt', c), { scale: 0, transformOrigin: '50% 50%', duration: 0.4, ease: 'back.out(3)', stagger: 0.1 }, 0.1)
+      .from($$('.chart__call', c), { opacity: 0, y: 10, duration: 0.6, ease: 'power3.out', stagger: 0.5 }, 0.6);
+  });
+  gsap.from('.badge', { y: 20, opacity: 0, duration: 0.8, ease: 'back.out(2)', stagger: 0.08, scrollTrigger: on('[data-growth]', 'top 90%') });
+  gsap.from('.devices__seg', { scaleX: 0, duration: 1.2, ease: 'expo.inOut', stagger: 0.1, scrollTrigger: on('.devices', 'top 90%') });
+  gsap.from('.issue__dots i', { scale: 0, duration: 0.4, ease: 'back.out(3)', stagger: 0.04, scrollTrigger: on('.issue', 'top 88%') });
+  // Produksi berita: bar tahun memanjang; grafik bulanan tumbuh saat terlihat dan setiap kali tahun diganti
+  gsap.from('.years__bar', { scaleX: 0, duration: 1.4, ease: 'expo.inOut', stagger: 0.12, scrollTrigger: on('.years__list', 'top 88%') });
+  const out = $('[data-output]');
+  if (out) {
+    ScrollTrigger.create({ trigger: '.bars', start: 'top 80%', once: true, onEnter: () => growBars(out) });
+    out.addEventListener('output:draw', () => growBars(out));
+  }
+  $$('.cases [data-num]').forEach((el) => countUp(el, el.closest('.panel')));
+}
+
+function growBars(root) {
+  const tl = gsap.timeline();
+  tl.from($$('.bar rect', root), { scaleY: 0, transformOrigin: '50% 100%', duration: 0.9, ease: 'expo.out', stagger: 0.05 }, 0)
+    .from($$('.bars__avg', root), { scaleX: 0, transformOrigin: '0% 50%', duration: 0.8, ease: 'power2.inOut' }, 0.2)
+    .add(draw($$('.bars__trend', root), { duration: 1.1, ease: 'power2.inOut' }), 0.35)
+    .from($$('.bars__dot', root), { scale: 0, transformOrigin: '50% 50%', duration: 0.35, ease: 'back.out(3)', stagger: 0.05 }, 0.45)
+    .from($$('.bar__val', root), { opacity: 0, y: 6, duration: 0.4, stagger: 0.04 }, 0.6)
+    .from($$('.bars__peak', root), { opacity: 0, y: -8, duration: 0.6, ease: 'back.out(2)' }, 1);
 }
 
 function journey() {
