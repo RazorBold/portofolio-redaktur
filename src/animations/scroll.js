@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
+import { tr, locale } from '../i18n.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -89,7 +90,7 @@ function countUp(el, trigger) {
   const o = { v: 0 };
   gsap.to(o, {
     v: end, duration: 1.8, ease: 'power2.out',
-    onUpdate: () => (el.textContent = o.v.toLocaleString('id-ID', { minimumFractionDigits: dec, maximumFractionDigits: dec })),
+    onUpdate: () => (el.textContent = o.v.toLocaleString(locale, { minimumFractionDigits: dec, maximumFractionDigits: dec })),
     scrollTrigger: { trigger, start: 'top 85%' },
   });
 }
@@ -205,7 +206,7 @@ function initNav(lenis) {
   const setMenu = (open) => {
     menu.hidden = !open;
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.textContent = open ? 'Tutup' : 'Menu';
+    toggle.textContent = open ? tr('Tutup', 'Close') : 'Menu';
     open ? lenis?.stop() : lenis?.start();
   };
   toggle.addEventListener('click', () => setMenu(menu.hidden));

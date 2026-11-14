@@ -6,6 +6,7 @@ import { render } from './render.js';
 import { initCursor, initMagnetic } from './cursor.js';
 import { runLoader, initHero } from './animations/hero.js';
 import { initScroll } from './animations/scroll.js';
+import { translatePage, initLangToggle, takeScroll } from './i18n.js';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -17,6 +18,10 @@ root.classList.remove('no-js');
 if (reduced) root.classList.add('reduced');
 
 render();
+translatePage();
+initLangToggle();
+// Setelah ganti bahasa: kembali ke posisi scroll semula dan lewati loader
+const backTo = takeScroll();
 
 // Smooth scroll (dimatikan bila pengguna memilih gerak dikurangi)
 let lenis = null;
@@ -38,10 +43,11 @@ async function start() {
   const press = window.matchMedia('(min-width: 821px)').matches
     ? import('./three/pressCard.js').then((m) => m.initPressCard(document.querySelector('[data-press]'), { reduced }))
     : null;
-  await runLoader({ reduced });
+  await runLoader({ reduced: reduced || backTo !== null });
   hero.play();
   (await press)?.enter();
   lenis?.start();
   ScrollTrigger.refresh();
+  if (backTo) lenis ? lenis.scrollTo(backTo, { immediate: true }) : window.scrollTo(0, backTo);
 }
 start();

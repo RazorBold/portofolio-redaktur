@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { gsap } from 'gsap';
 import { profile } from '../data/content.js';
+import { tr } from '../i18n.js';
 
 // Kartu pers 3D yang tergantung di tali lanyard.
 // Berayun seperti bandul (pegas teredam), bereaksi pada kecepatan kursor, dan berbalik saat diklik.
@@ -41,7 +42,7 @@ function drawFront() {
   x.fillStyle = '#d1cec8'; roundRect(x, c.width / 2 - 110, 54, 220, 36, 18); x.fill();
   // judul
   x.fillStyle = COLORS.ink; x.textBaseline = 'alphabetic';
-  x.font = '900 104px Inter'; x.fillText('PORTOFOLIO', 80, 236);
+  x.font = '900 104px Inter'; x.fillText(tr('PORTOFOLIO', 'PORTFOLIO'), 80, 236);
   x.font = '700 40px Inter'; x.textAlign = 'right'; x.fillText('2026', c.width - 86, 300); x.textAlign = 'left';
   // lambang pena
   const s = 300, ex = c.width / 2 - s / 2, ey = 340;
@@ -49,7 +50,7 @@ function drawFront() {
   icon(x, ICONS.nib, ex + 60, ey + 54, 180, COLORS.paper, 1.6);
   x.beginPath(); x.arc(ex + s / 2, ey + 54 + 12.5 * 7.5, 13, 0, Math.PI * 2); x.fillStyle = COLORS.paper; x.fill();
   // tiga bidang keahlian
-  const rows = [[ICONS.paper, 'Kepemimpinan Editorial'], [ICONS.layers, 'Manajemen Redaksi'], [ICONS.screen, 'Media Digital']];
+  const rows = [[ICONS.paper, tr('Kepemimpinan Editorial', 'Editorial Leadership')], [ICONS.layers, tr('Manajemen Redaksi', 'Newsroom Management')], [ICONS.screen, tr('Media Digital', 'Digital Media')]];
   rows.forEach(([d, label], i) => {
     const y = 760 + i * 118;
     icon(x, d, 96, y - 46, 58, COLORS.ink, 2);
@@ -57,7 +58,7 @@ function drawFront() {
     if (i < rows.length - 1) { x.fillStyle = COLORS.line; x.fillRect(86, y + 44, c.width - 172, 3); }
   });
   x.fillStyle = COLORS.paper; x.font = '800 50px Inter'; x.textAlign = 'center';
-  x.fillText('PORTOFOLIO PROFESIONAL', c.width / 2, c.height - 66);
+  x.fillText(tr('PORTOFOLIO PROFESIONAL', 'PROFESSIONAL PORTFOLIO'), c.width / 2, c.height - 66);
   return c;
 }
 
@@ -69,9 +70,9 @@ function drawBack() {
   x.fillStyle = '#0a3d2d'; roundRect(x, c.width / 2 - 110, 54, 220, 36, 18); x.fill();
   const g = x.createLinearGradient(0, 380, 0, 640); g.addColorStop(0, 'rgba(242,239,232,.95)'); g.addColorStop(1, 'rgba(242,239,232,.15)');
   x.fillStyle = g; x.font = '900 230px Inter'; x.textAlign = 'center'; x.fillText('PRESS', c.width / 2, 600);
-  x.fillStyle = COLORS.sage; x.font = '400 170px "Great Vibes"'; x.save(); x.translate(c.width / 2, 790); x.rotate(-0.12); x.fillText('Redaksi', 0, 0); x.restore();
+  x.fillStyle = COLORS.sage; x.font = '400 170px "Great Vibes"'; x.save(); x.translate(c.width / 2, 790); x.rotate(-0.12); x.fillText(tr('Redaksi', 'Newsroom'), 0, 0); x.restore();
   x.fillStyle = 'rgba(242,239,232,.8)'; x.font = '500 34px Inter';
-  x.fillText('Kartu identitas', c.width / 2, 1060); x.fillText(`${profile.role} · ${profile.company}`, c.width / 2, 1110);
+  x.fillText(tr('Kartu identitas', 'Press pass'), c.width / 2, 1060); x.fillText(`${profile.role} · ${profile.company}`, c.width / 2, 1110);
   return c;
 }
 

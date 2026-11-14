@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ferdinan — Redaktur Pelaksana</title>
-  <meta name="description" content="Portofolio Redaktur Pelaksana VOI: 18 tahun di ruang redaksi Okezone, detikNews, dan VOI." />
+  <title data-en="Ferdinan — Managing Editor">Ferdinan — Redaktur Pelaksana</title>
+  <meta name="description" content="Portofolio Redaktur Pelaksana VOI: 18 tahun di ruang redaksi Okezone, detikNews, dan VOI." data-en-content="Portfolio of VOI's Managing Editor: 18 years in the newsrooms of Okezone, detikNews, and VOI." />
   <meta name="theme-color" content="#0e4d3a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,13 +13,13 @@
   <link rel="stylesheet" href="/src/styles/main.css" />
 </head>
 <body>
-  <a class="skip" href="#tentang">Lewati ke konten</a>
+  <a class="skip" href="#tentang" data-en="Skip to content">Lewati ke konten</a>
 
   <!-- Preloader -->
   <div class="loader" aria-hidden="true">
     <div class="loader__inner">
       <span class="loader__count">0</span>
-      <span class="loader__label">Menyiapkan edisi hari ini</span>
+      <span class="loader__label" data-en="Preparing today's edition">Menyiapkan edisi hari ini</span>
     </div>
   </div>
 
@@ -31,14 +31,15 @@
   <div class="pub-preview" aria-hidden="true"><img alt="" /></div>
 
   <header class="nav" data-nav>
-    <a class="nav__brand" href="#top" data-cursor="Atas">Portofolio<span class="nav__rule"></span></a>
+    <a class="nav__brand" href="#top" data-cursor="Atas"><span data-en="Portfolio">Portofolio</span><span class="nav__rule"></span></a>
     <nav class="nav__links" aria-label="Navigasi utama">
       <a href="#tentang">About</a>
       <a href="#karya">Portfolio</a>
       <a href="#perjalanan">Experience</a>
       <a href="#kontak">Contact</a>
     </nav>
-    <a class="btn btn--light nav__cta" href="#kontak" data-magnetic>Hubungi saya <span aria-hidden="true">↗</span></a>
+    <a class="btn btn--light nav__cta" href="#kontak" data-magnetic><span data-en="Contact me">Hubungi saya</span> <span aria-hidden="true">↗</span></a>
+    <button class="nav__lang" type="button" data-lang-toggle aria-label="Ganti bahasa ke English" data-en-label="Switch language to Bahasa Indonesia"><span data-lang="id">ID</span><span class="nav__lang-sep" aria-hidden="true">/</span><span data-lang="en">EN</span></button>
     <button class="nav__menu" aria-expanded="false" aria-controls="menu" data-menu-toggle>Menu</button>
   </header>
 
@@ -62,25 +63,25 @@
 
           <svg class="mug-logo" data-mug viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l6 8c0 5-3 9-6 12-3-3-6-7-6-12z"/><path d="M12 2v9"/><circle cx="12" cy="12.5" r="1.4"/></svg>
         </div>
-        <h1 class="hero__word" id="hero-title" data-hero-word aria-label="Ferdinan, Redaktur Pelaksana">FERDINAN</h1>
+        <h1 class="hero__word" id="hero-title" data-hero-word aria-label="Ferdinan, Redaktur Pelaksana" data-en-label="Ferdinan, Managing Editor">FERDINAN</h1>
         <span class="hero__glow" data-hero-glow aria-hidden="true"></span>
       </div>
 
       <div class="hero__copy">
         <h2 class="hero__lede" data-hero-lede>Editorial leadership &amp; newsroom management</h2>
         <span class="hero__rule" data-hero-fade aria-hidden="true"></span>
-        <p class="hero__text" data-hero-fade>18 tahun di ruang redaksi — dari reporter lapangan Okezone dan detikNews hingga memimpin alur editorial di VOI.</p>
+        <p class="hero__text" data-hero-fade data-en="18 years in the newsroom, from field reporter at Okezone and detikNews to leading the editorial workflow at VOI.">18 tahun di ruang redaksi — dari reporter lapangan Okezone dan detikNews hingga memimpin alur editorial di VOI.</p>
         <div class="hero__actions" data-hero-fade>
-          <a class="btn btn--light" href="#karya" data-magnetic data-cursor="Lihat">Lihat portofolio</a>
-          <a class="btn btn--ghost" href="#tentang" data-magnetic>Tentang saya</a>
+          <a class="btn btn--light" href="#karya" data-magnetic data-cursor="Lihat" data-en="View portfolio">Lihat portofolio</a>
+          <a class="btn btn--ghost" href="#tentang" data-magnetic data-en="About me">Tentang saya</a>
         </div>
       </div>
 
       <!-- Three.js: kartu pers berayun -->
       <div class="press" data-press data-cursor="Putar">
-        <canvas class="press__canvas" aria-label="Kartu portofolio berayun di tali. Klik untuk membalik." role="img"></canvas>
+        <canvas class="press__canvas" aria-label="Kartu portofolio berayun di tali. Klik untuk membalik." data-en-label="Portfolio card swinging on a lanyard. Click to flip it." role="img"></canvas>
       </div>
-      <p class="hero__hint" data-hero-fade>Gerakkan kursor atau klik kartunya</p>
+      <p class="hero__hint" data-hero-fade data-en="Move your cursor or click the card">Gerakkan kursor atau klik kartunya</p>
     </section>
 
     <!-- TICKER -->
@@ -90,15 +91,15 @@
     <section class="about" id="tentang" aria-labelledby="about-title">
       <span class="about__watermark" aria-hidden="true" data-watermark>EDITORIAL</span>
       <div class="about__copy">
-        <p class="script about__script" aria-hidden="true">sejak 2008</p>
-        <h2 class="about__title" id="about-title" data-split>/ Tentang saya</h2>
-        <p class="about__text" data-reveal>Redaktur Pelaksana di VOI. Memimpin agenda pemberitaan, penyuntingan, dan pengembangan angle, serta mengoordinasikan produksi berita agar setiap tulisan terbit akurat, relevan, dan tepat waktu.</p>
-        <a class="btn btn--dark" href="#perjalanan" data-magnetic data-reveal>Lihat perjalanan karier</a>
+        <p class="script about__script" aria-hidden="true" data-en="since 2008">sejak 2008</p>
+        <h2 class="about__title" id="about-title" data-split data-en="/ About me">/ Tentang saya</h2>
+        <p class="about__text" data-reveal data-en="Managing Editor at VOI. Leads the news agenda, editing, and angle development, and coordinates news production so every story goes out accurate, relevant, and on time.">Redaktur Pelaksana di VOI. Memimpin agenda pemberitaan, penyuntingan, dan pengembangan angle, serta mengoordinasikan produksi berita agar setiap tulisan terbit akurat, relevan, dan tepat waktu.</p>
+        <a class="btn btn--dark" href="#perjalanan" data-magnetic data-reveal data-en="See my career path">Lihat perjalanan karier</a>
       </div>
       <ul class="stats" data-stats></ul>
       <figure class="polaroid" data-polaroid>
         <svg class="polaroid__clip" viewBox="0 0 34 86" aria-hidden="true"><path d="M9 26V66a8 8 0 0 0 16 0V16a12 12 0 0 0-24 0v56a16 16 0 0 0 32 0V30" fill="none" stroke="#9AA0A6" stroke-width="3.2" stroke-linecap="round"/></svg>
-        <img src="/images/generated/rapat-redaksi.webp" alt="Suasana rapat redaksi" loading="lazy" />
+        <img src="/images/generated/rapat-redaksi.webp" alt="Suasana rapat redaksi" data-en-alt="An editorial meeting" loading="lazy" />
       </figure>
     </section>
 
@@ -107,10 +108,10 @@
       <img class="lead__bg" src="/images/generated/newsroom-malam.webp" alt="" loading="lazy" data-parallax-bg />
       <div class="lead__shade"></div>
       <div class="lead__head">
-        <h2 class="lead__title serif" id="lead-title" data-split>Menjaga arah berita, dari rapat agenda sampai tombol terbit.</h2>
+        <h2 class="lead__title serif" id="lead-title" data-split data-en="Keeping the news on course, from the agenda meeting to the publish button.">Menjaga arah berita, dari rapat agenda sampai tombol terbit.</h2>
       </div>
       <figure class="lead__photo" data-photo>
-        <img src="/images/generated/penyuntingan.webp" alt="Penyuntingan naskah dengan pena merah" loading="lazy" />
+        <img src="/images/generated/penyuntingan.webp" alt="Penyuntingan naskah dengan pena merah" data-en-alt="Editing a manuscript with a red pen" loading="lazy" />
       </figure>
       <ol class="steps" data-steps></ol>
     </section>
@@ -118,9 +119,9 @@
     <!-- KARYA -->
     <section class="works" id="karya" aria-labelledby="works-title">
       <div class="works__mast">
-        <h2 class="works__word" id="works-title" data-mast aria-label="Karya jurnalistik">KARYA</h2>
-        <p class="script works__script" aria-hidden="true" data-script-reveal>Jurnalistik</p>
-        <p class="works__edition">Edisi pilihan, 2008–2026</p>
+        <h2 class="works__word" id="works-title" data-mast aria-label="Karya jurnalistik" data-en-label="Journalistic work" data-en="WORKS">KARYA</h2>
+        <p class="script works__script" aria-hidden="true" data-script-reveal data-en="Journalism">Jurnalistik</p>
+        <p class="works__edition" data-en="Selected edition, 2008–2026">Edisi pilihan, 2008–2026</p>
       </div>
       <div class="works__rule" data-rule></div>
       <div class="works__grid">
@@ -132,9 +133,9 @@
       <section class="cases" id="capaian" aria-labelledby="cases-title">
       <header class="cases__head">
         <div class="cases__copy">
-          <p class="tag" data-tag>Capaian</p>
-          <h3 class="cases__title" id="cases-title" data-split>Data, distribusi &amp; performa redaksi</h3>
-          <p class="cases__intro" data-reveal>Dua contoh kerja di balik meja redaksi: memetakan jaringan liputan dan kebutuhan SDM biro daerah, lalu memantau pembaca lewat data audiens untuk mengambil keputusan editorial.</p>
+          <p class="tag" data-tag data-en="Achievements">Capaian</p>
+          <h3 class="cases__title" id="cases-title" data-split data-en="Data, distribution &amp; newsroom performance">Data, distribusi &amp; performa redaksi</h3>
+          <p class="cases__intro" data-reveal data-en="Two examples of work behind the editor's desk: mapping the coverage network and staffing needs of regional bureaus, then tracking readers through audience data to make editorial calls.">Dua contoh kerja di balik meja redaksi: memetakan jaringan liputan dan kebutuhan SDM biro daerah, lalu memantau pembaca lewat data audiens untuk mengambil keputusan editorial.</p>
         </div>
         <figure class="cases__photo" data-cases-photo>
           <img src="/images/generated/meja-editor.webp" alt="" loading="lazy" data-parallax-bg />
@@ -142,17 +143,17 @@
       </header>
 
       <article class="case" aria-labelledby="case1-title">
-        <p class="tag" data-tag>Capaian 01</p>
-        <h4 class="case__title serif" id="case1-title" data-split>Pemetaan Biro Daerah, detikcom</h4>
+        <p class="tag" data-tag data-en="Achievement 01">Capaian 01</p>
+        <h4 class="case__title serif" id="case1-title" data-split data-en="Regional Bureau Mapping, detikcom">Pemetaan Biro Daerah, detikcom</h4>
         <ul class="case__meta" data-reveal>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Januari–Maret 2020</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Wakil Redaktur Pelaksana Daerah &amp; Non Biro</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg><span data-en="January–March 2020">Januari–Maret 2020</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span data-en="Deputy Managing Editor, Regional &amp; Non-Bureau">Wakil Redaktur Pelaksana Daerah &amp; Non Biro</span></li>
         </ul>
         <div class="case__maps">
           <aside class="context" data-reveal>
-            <h5 class="context__title script">Konteks</h5>
-            <p>Sebagai Wakil Redaktur Pelaksana Daerah &amp; Non Biro detikcom, Ferdinan membawahi dua biro sekaligus: <strong>Biro Medan</strong> untuk Sumatra dan <strong>Biro Makassar</strong> untuk Sulawesi.</p>
-            <p>Semua kota di peta ini berada di bawah koordinasinya: 20 kota, 8 reporter, dan 14 kontributor. Laporan internal ini dikirim kepadanya untuk memetakan kekuatan tim, capaian trafik, dan posisi yang masih perlu diisi.</p>
+            <h5 class="context__title script" data-en="Context">Konteks</h5>
+            <p data-en="As detikcom's Deputy Managing Editor for Regional &amp; Non-Bureau, Ferdinan oversaw two bureaus at once: the &lt;strong&gt;Medan Bureau&lt;/strong&gt; for Sumatra and the &lt;strong&gt;Makassar Bureau&lt;/strong&gt; for Sulawesi.">Sebagai Wakil Redaktur Pelaksana Daerah &amp; Non Biro detikcom, Ferdinan membawahi dua biro sekaligus: <strong>Biro Medan</strong> untuk Sumatra dan <strong>Biro Makassar</strong> untuk Sulawesi.</p>
+            <p data-en="Every city on these maps was under Ferdinan's coordination: 20 cities, 8 reporters, and 14 contributors. This internal report was sent to Ferdinan to map the team's strength, traffic results, and the positions still to be filled.">Semua kota di peta ini berada di bawah koordinasinya: 20 kota, 8 reporter, dan 14 kontributor. Laporan internal ini dikirim kepadanya untuk memetakan kekuatan tim, capaian trafik, dan posisi yang masih perlu diisi.</p>
           </aside>
           <div class="maps" data-maps></div>
         </div>
@@ -160,33 +161,33 @@
         <div class="case__data">
           <section class="panel panel--chart" aria-labelledby="chart-title">
             <div class="panel__top">
-              <h5 class="panel__tab" id="chart-title">Rata-rata PV harian</h5>
+              <h5 class="panel__tab" id="chart-title" data-en="Average daily PV">Rata-rata PV harian</h5>
               <p class="chart-legend"><span><i class="lg-line"></i>PV (pageviews)</span></p>
             </div>
             <div class="chart-body">
               <div class="charts" data-charts></div>
               <aside class="chart-side">
                 <div class="growth" data-growth></div>
-                <p class="panel__note--quote">Lonjakan trafik Januari 2020 banyak didorong berita kriminal yang viral.</p>
+                <p class="panel__note--quote" data-en="The January 2020 traffic spike was driven largely by viral crime stories.">Lonjakan trafik Januari 2020 banyak didorong berita kriminal yang viral.</p>
               </aside>
             </div>
-            <p class="panel__note">Rata-rata pageviews per hari tiap bulan, Januari 2019 sampai 1–18 Januari 2020. Sumber: Google Analytics, laporan internal Maret 2020.</p>
+            <p class="panel__note" data-en="Average pageviews per day for each month, January 2019 to 1–18 January 2020. Source: Google Analytics, internal report, March 2020.">Rata-rata pageviews per hari tiap bulan, Januari 2019 sampai 1–18 Januari 2020. Sumber: Google Analytics, laporan internal Maret 2020.</p>
           </section>
         </div>
       </article>
 
       <article class="case" aria-labelledby="case2-title">
-        <p class="tag" data-tag>Capaian 02</p>
+        <p class="tag" data-tag data-en="Achievement 02">Capaian 02</p>
         <h4 class="case__title serif" id="case2-title" data-split>Audience Intelligence, VOI.ID</h4>
-        <p class="case__sub" data-reveal><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V14M9 20V9M14 20V12M19 20V5"/></svg>Google Analytics · pemantauan performa pembaca</p>
+        <p class="case__sub" data-reveal><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V14M9 20V9M14 20V12M19 20V5"/></svg><span data-en="Google Analytics · tracking reader performance">Google Analytics · pemantauan performa pembaca</span></p>
         <div class="voi" data-voi></div>
-        <p class="case__caption case__caption--left"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Catatan: angka di atas dari tangkapan layar dasbor historis, bukan data real-time.</p>
+        <p class="case__caption case__caption--left"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span data-en="Note: the figures above come from historical dashboard screenshots, not real-time data.">Catatan: angka di atas dari tangkapan layar dasbor historis, bukan data real-time.</span></p>
       </article>
 
       <article class="case" aria-labelledby="case3-title">
-        <p class="tag" data-tag>Capaian 03</p>
-        <h4 class="case__title serif" id="case3-title" data-split>Ritme produksi berita, 2023–2026</h4>
-        <p class="case__sub" data-reveal><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2V5z"/><path d="M17 9h3v8a2 2 0 0 1-2 2h-1"/><path d="M7 9h7M7 12h7M7 15h4"/></svg>VOI · jumlah berita per bulan, Januari 2023 sampai Agustus 2026</p>
+        <p class="tag" data-tag data-en="Achievement 03">Capaian 03</p>
+        <h4 class="case__title serif" id="case3-title" data-split data-en="News production rhythm, 2023–2026">Ritme produksi berita, 2023–2026</h4>
+        <p class="case__sub" data-reveal><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2V5z"/><path d="M17 9h3v8a2 2 0 0 1-2 2h-1"/><path d="M7 9h7M7 12h7M7 15h4"/></svg><span data-en="VOI · stories per month, January 2023 to August 2026">VOI · jumlah berita per bulan, Januari 2023 sampai Agustus 2026</span></p>
         <div class="output" data-output></div>
       </article>
       </section>
@@ -195,8 +196,8 @@
     <!-- PERJALANAN -->
     <section class="journey" id="perjalanan" aria-labelledby="journey-title">
       <span class="journey__bg" aria-hidden="true" data-journey-bg>2008—2026</span>
-      <p class="script journey__script" aria-hidden="true" data-script-reveal>Perjalanan</p>
-      <h2 class="journey__title serif" id="journey-title" data-split>Dari lapangan ke meja redaksi.</h2>
+      <p class="script journey__script" aria-hidden="true" data-script-reveal data-en="Journey">Perjalanan</p>
+      <h2 class="journey__title serif" id="journey-title" data-split data-en="From the field to the editor's desk.">Dari lapangan ke meja redaksi.</h2>
       <div class="timeline">
         <div class="timeline__line"><span data-line></span></div>
         <ol class="timeline__list" data-timeline></ol>
@@ -206,11 +207,11 @@
     <!-- PUBLIKASI -->
     <section class="pubs" aria-labelledby="pubs-title">
       <div class="pubs__list">
-        <h2 class="pubs__title" id="pubs-title">/ Publikasi <span class="script pubs__script" aria-hidden="true">arsip</span></h2>
+        <h2 class="pubs__title" id="pubs-title" data-en="/ Publications &lt;span class=&quot;script pubs__script&quot; aria-hidden=&quot;true&quot;&gt;archive&lt;/span&gt;">/ Publikasi <span class="script pubs__script" aria-hidden="true">arsip</span></h2>
         <ul data-pubs></ul>
       </div>
       <aside class="edu" data-edu>
-        <h3 class="edu__label">Pendidikan</h3>
+        <h3 class="edu__label" data-en="Education">Pendidikan</h3>
         <p class="edu__degree serif" data-edu-degree></p>
         <p class="edu__school" data-edu-school></p>
       </aside>
@@ -220,14 +221,14 @@
     <section class="contact" id="kontak" aria-labelledby="contact-title">
       <img class="contact__bg" src="/images/generated/meja-editor.webp" alt="" loading="lazy" data-parallax-bg />
       <div class="contact__shade"></div>
-      <h2 class="contact__word" id="contact-title" data-contact-word aria-label="Hubungi">HUBUNGI</h2>
+      <h2 class="contact__word" id="contact-title" data-contact-word aria-label="Hubungi" data-en-label="Contact" data-en="CONTACT">HUBUNGI</h2>
       <dl class="contact__list">
         <div><dt>Email</dt><dd><a href="#" data-email data-cursor="Tulis"></a></dd></div>
-        <div><dt>Telepon</dt><dd><a href="#" data-phone data-cursor="Telepon"></a></dd></div>
+        <div><dt data-en="Phone">Telepon</dt><dd><a href="#" data-phone data-cursor="Telepon"></a></dd></div>
       </dl>
-      <a class="btn btn--light" href="#" data-email-btn data-magnetic>Kirim email <span aria-hidden="true">↗</span></a>
+      <a class="btn btn--light" href="#" data-email-btn data-magnetic><span data-en="Send email">Kirim email</span> <span aria-hidden="true">↗</span></a>
       <footer class="footer">
-        <p>© 2026 <span data-name></span> · Redaktur Pelaksana</p>
+        <p>© 2026 <span data-name></span> · <span data-en="Managing Editor">Redaktur Pelaksana</span></p>
         <ul data-socials></ul>
       </footer>
     </section>
