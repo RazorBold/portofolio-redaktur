@@ -304,15 +304,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .map__legend li { display: flex; align-items: center; gap: 7px; }
 .lg { display: grid; place-items: center; width: 14px; height: 14px; border-radius: 50%; font: 700 10px/1 var(--sans); font-style: normal; }
 .lg--r { background: var(--emerald); color: var(--paper); }
-.lg--k { width: 10px; height: 10px; margin: 2px; background: var(--ink); }
 .lg--biro { border: 1.5px solid var(--emerald); background: transparent; }
 .lg--x { width: 10px; height: 10px; margin: 2px; border: 1.5px dashed var(--muted-light); }
 .map__svg { display: block; width: 100%; height: auto; padding: 4px 10px 0; overflow: visible; }
 .map__land { fill: #e2ddd2; stroke: #b9b3a6; stroke-width: 1; stroke-linejoin: round; }
 .place__name { font: 600 11px/1 var(--sans); fill: var(--ink); paint-order: stroke; stroke: var(--paper-2); stroke-width: 3px; }
-.place--r .place__dot { fill: var(--emerald); stroke: var(--paper-2); stroke-width: 1.5; }
+.place--r .place__dot, .place--k .place__dot { fill: var(--emerald); stroke: var(--paper-2); stroke-width: 1.5; }
 .place__d { font: 700 11px/1 var(--sans); fill: var(--paper); text-anchor: middle; }
-.place--k .place__dot { fill: var(--ink); }
 .place__ring { fill: none; stroke: var(--emerald); stroke-width: 1.5; }
 .place--biro .place__name { font-weight: 800; }
 .place__count { font: 600 10px var(--mono); fill: var(--emerald); }

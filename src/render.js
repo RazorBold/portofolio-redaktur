@@ -108,7 +108,7 @@ function mapPanel(b) {
   const places = b.places.map(({ name, at: [lo, la], type, label, count, biro }) => {
     const [x, y] = p(lo, la), [dx, dy, anchor] = LABEL[label];
     const push = biro ? 4 : 0; // label bergeser keluar dari cincin kantor biro
-    const mark = (biro ? `<circle class="place__ring" r="${type === 'r' ? 12 : 9}"/>` : '') + (type === 'r'
+    const mark = (biro ? `<circle class="place__ring" r="${type !== 'x' ? 12 : 9}"/>` : '') + (type !== 'x'
       ? '<circle class="place__dot" r="8"/><text class="place__d" y="3.6">d</text>'
       : '<circle class="place__dot" r="4.5"/>');
     const text = `${esc(name)}${count ? ` <tspan class="place__count">×${count}</tspan>` : ''}`;
@@ -119,8 +119,7 @@ function mapPanel(b) {
     <section class="panel map" aria-label="SDM ${esc(b.name)}">
       <div class="panel__top"><h5 class="panel__tab">SDM ${esc(b.name)}</h5>
       <ul class="map__legend">
-        <li><i class="lg lg--r">d</i>Reporter</li>
-        <li><i class="lg lg--k"></i>Kontributor</li>
+        <li><i class="lg lg--r">d</i>Kota liputan (reporter/kontributor)</li>
         <li><i class="lg lg--x"></i>Kosong</li>
         <li><i class="lg lg--biro"></i>Kantor biro</li>
       </ul></div>
