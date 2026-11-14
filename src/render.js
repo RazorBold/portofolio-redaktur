@@ -71,9 +71,19 @@ export function render() {
   $('[data-edu-degree]').textContent = profile.education.degree;
   $('[data-edu-school]').textContent = profile.education.school;
 
-  const mail = `mailto:${profile.email}`;
+  const subject = encodeURIComponent('Halo Ferdinan');
+  const mail = `mailto:${profile.email}?subject=${subject}`;
   const email = $('[data-email]'); email.href = mail; email.textContent = profile.email;
-  $('[data-email-btn]').href = mail;
+  // Di HP tombol membuka aplikasi email. Di desktop banyak orang tidak punya aplikasi email,
+  // jadi tombol membuka jendela tulis Gmail di tab baru.
+  const btn = $('[data-email-btn]');
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    btn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(profile.email)}&su=${subject}`;
+    btn.target = '_blank';
+    btn.rel = 'noopener';
+  } else {
+    btn.href = mail;
+  }
   const phone = $('[data-phone]'); phone.href = `tel:${profile.phoneHref}`; phone.textContent = profile.phone;
   $('[data-name]').textContent = profile.name;
   $('[data-socials]').innerHTML = profile.socials.map((s) => `<li><a href="${s.href}">${esc(s.label)}</a></li>`).join('');

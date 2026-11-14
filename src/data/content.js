@@ -10,8 +10,6 @@ export const profile = {
   phoneHref: '+6285282066148',
   education: { degree: 'Sarjana Ilmu Komunikasi', school: 'Universitas Persada Indonesia Y.A.I (UPI–YAI)' },
   socials: [
-    { label: 'LinkedIn', href: '#' }, // TODO
-    { label: 'Instagram', href: '#' }, // TODO
     { label: 'X', href: '#' }, // TODO
   ],
 };

@@ -538,7 +538,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font: 900 14.6vw/0.95 var(--sans); letter-spacing: -0.04em; margin-left: -0.04em;
   background-image: linear-gradient(180deg, rgba(242,239,232,.95), rgba(242,239,232,.15));
 }
-.contact__script { position: absolute; left: 44%; top: calc(90px + 9vw); font-size: clamp(56px, 8.3vw, 120px); color: #fff; rotate: -7deg; text-shadow: 0 6px 18px rgba(0,0,0,.35); }
 .contact__list { display: grid; gap: 10px; margin: 44px 0 30px; }
 .contact__list div { display: flex; gap: 28px; }
 .contact__list dt { width: 90px; font: 500 14px/1.7 var(--mono); color: var(--sage); }
@@ -617,7 +616,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .map__stats p:first-child { flex-basis: 100%; }
   .map__stats p + p { padding: 0 16px 0 0; border-left: 0; }
   .case__meta li + li { padding-left: 0; border-left: 0; }
-  .contact__script { position: static; margin-top: -10px; }
   .contact__list div { flex-direction: column; gap: 0; }
   .footer { flex-direction: column; }
 }
