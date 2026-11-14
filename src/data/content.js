@@ -26,8 +26,8 @@ export const stats = [
 export const workflow = [
   { title: tr('Agenda pemberitaan', 'News agenda'), desc: tr('Menyusun prioritas isu harian dan rencana liputan bersama tim redaksi.', 'Setting daily story priorities and coverage plans with the editorial team.') },
   { title: tr('Penyuntingan', 'Editing'), desc: tr('Memastikan akurasi, kelengkapan, dan standar editorial di setiap naskah.', 'Checking accuracy, completeness, and editorial standards in every story.') },
-  { title: tr('Pengembangan angle', 'Angle development'), desc: tr('Menajamkan sudut pandang agar berita relevan, kuat, dan berbeda.', 'Sharpening the angle so each story is relevant, strong, and distinct.') },
-  { title: tr('Koordinasi produksi', 'Production coordination'), desc: tr('Mengatur ritme reporter, editor, dan tim produksi hingga berita terbit.', 'Setting the pace for reporters, editors, and production until the story goes live.') },
+  { title: tr('Penajaman sudut berita', 'Angle development'), desc: tr('Mencari sudut pandang yang membuat berita relevan, kuat, dan berbeda dari media lain.', 'Sharpening the angle so each story is relevant, strong, and distinct.') },
+  { title: tr('Koordinasi produksi', 'Production coordination'), desc: tr('Mengatur ritme kerja reporter, editor, dan tim produksi sampai berita terbit.', 'Setting the pace for reporters, editors, and production until the story goes live.') },
 ];
 
 // Sumber: Top 10 Articles Biro Medan & Makassar (GA, Januari 2020) dan dasbor GA VOI.ID.
@@ -36,31 +36,31 @@ export const workflow = [
 export const leadStory = {
   kicker: tr('Liputan utama · Biro Medan', 'Lead story · Medan Bureau'),
   title: tr('Peran Istri di Balik Pembunuhan Hakim PN Medan', "The Wife's Role Behind the Murder of a Medan District Court Judge"),
-  summary: tr('209.370 pageviews. Sepuluh dari sebelas artikel teratas Biro Medan bulan itu adalah lanjutan kasus ini: kronologi, motif, keterangan Polri, sampai suara anak korban. Liputan biro yang saya kelola.', "209,370 pageviews. Ten of the Medan Bureau's top eleven articles that month were follow-ups to this case: the timeline, the motive, police statements, even the victim's child speaking out. Coverage from the bureau I managed."),
+  summary: tr('Dibaca 209.370 kali. Sepuluh dari sebelas artikel terpopuler Biro Medan bulan itu adalah liputan lanjutan kasus ini, mulai dari kronologi, motif, keterangan polisi, hingga suara anak korban. Liputan ini dikerjakan biro yang saya pimpin.', "209,370 pageviews. Ten of the Medan Bureau's top eleven articles that month were follow-ups to this case: the timeline, the motive, police statements, even the victim's child speaking out. Coverage from the bureau I managed."),
   outlet: 'detikcom', year: tr('8 Januari 2020', '8 January 2020'), href: '#',
   image: '/images/generated/doorstop.webp',
 };
 
 export const clippings = [
-  { kicker: tr('Biro Makassar · detikcom · 15 Jan 2020', 'Makassar Bureau · detikcom · 15 Jan 2020'), title: tr('Bisa Terbang! Pesawat Bikinan Montir Tak Lulus SD Seharga Rp 30 Juta', 'It Flies! A Rp 30 Million Plane Built by a Mechanic Who Never Finished Primary School'), stat: tr('255.170 pageviews', '255,170 pageviews'), href: '#' },
-  { kicker: tr('Biro Makassar · detikcom · 15 Jan 2020', 'Makassar Bureau · detikcom · 15 Jan 2020'), title: tr('Analisis Pakar Penerbangan soal Pesawat Montir Tak Tamat SD', 'An Aviation Expert on the Plane Built by a Primary-School Dropout Mechanic'), stat: tr('168.770 pageviews · lanjutan dari sudut ahli', '168,770 pageviews · follow-up from an expert angle'), href: '#' },
-  { kicker: 'VOI · 16 Feb 2023', title: tr('DPRD: Bandara Internasional Minangkabau Turun Kelas Jadi Bandara Nasional, Kerugian bagi Sumbar', 'Regional Council: Minangkabau International Airport Downgraded to a National Airport, a Loss for West Sumatra'), stat: tr('6.894 pageviews · 10,6% trafik situs hari itu', "6,894 pageviews · 10.6% of the site's traffic that day"), href: 'https://voi.id/berita/253605/dprd-bandara-internasional-minangkabau-turun-kelas-jadi-bandara-nasional-kerugian-bagi-sumbar' },
-  { kicker: 'VOI · realtime', title: tr('Gempa Kuta Selatan Bali, Magnitudo 4,8', 'Magnitude 4.8 Earthquake Hits South Kuta, Bali'), stat: tr('Teratas di edisi Inggris dan Indonesia sekaligus', 'Top story in the English and Indonesian editions at once'), href: '#' },
+  { kicker: tr('Biro Makassar · detikcom · 15 Jan 2020', 'Makassar Bureau · detikcom · 15 Jan 2020'), title: tr('Bisa Terbang! Pesawat Bikinan Montir Tak Lulus SD Seharga Rp 30 Juta', 'It Flies! A Rp 30 Million Plane Built by a Mechanic Who Never Finished Primary School'), stat: tr('Dibaca 255.170 kali', '255,170 pageviews'), href: '#' },
+  { kicker: tr('Biro Makassar · detikcom · 15 Jan 2020', 'Makassar Bureau · detikcom · 15 Jan 2020'), title: tr('Analisis Pakar Penerbangan soal Pesawat Montir Tak Tamat SD', 'An Aviation Expert on the Plane Built by a Primary-School Dropout Mechanic'), stat: tr('Dibaca 168.770 kali · liputan lanjutan dari sudut pandang pakar', '168,770 pageviews · follow-up from an expert angle'), href: '#' },
+  { kicker: 'VOI · 16 Feb 2023', title: tr('DPRD: Bandara Internasional Minangkabau Turun Kelas Jadi Bandara Nasional, Kerugian bagi Sumbar', 'Regional Council: Minangkabau International Airport Downgraded to a National Airport, a Loss for West Sumatra'), stat: tr('Dibaca 6.894 kali · 10,6% dari total trafik situs hari itu', "6,894 pageviews · 10.6% of the site's traffic that day"), href: 'https://voi.id/berita/253605/dprd-bandara-internasional-minangkabau-turun-kelas-jadi-bandara-nasional-kerugian-bagi-sumbar' },
+  { kicker: tr('VOI · real-time', 'VOI · realtime'), title: tr('Gempa Kuta Selatan Bali, Magnitudo 4,8', 'Magnitude 4.8 Earthquake Hits South Kuta, Bali'), stat: tr('Berita terpopuler di edisi bahasa Inggris dan Indonesia pada saat yang sama', 'Top story in the English and Indonesian editions at once'), href: '#' },
 ];
 
 // Urut dari yang paling awal → sekarang
 export const career = [
   { years: '2008–2012', outlet: 'Okezone.com', title: 'Reporter', desc: tr('Peliputan, wawancara, riset, dan produksi berita digital.', 'Reporting, interviews, research, and digital news production.') },
   { years: '2012–2016', outlet: 'detikNews', title: 'Reporter', desc: tr('Liputan lapangan, verifikasi informasi, dan penulisan berita.', 'Field reporting, fact verification, and news writing.') },
-  { years: '2016–2017', outlet: 'detikNews', title: tr('Redaktur Nasional', 'National Desk Editor'), desc: tr('Menyunting, mengembangkan angle, menjaga standar editorial.', 'Editing copy, developing angles, upholding editorial standards.') },
-  { years: '2017–2018', outlet: 'detikNews', title: tr('Koordinator Peliputan', 'Coverage Coordinator'), desc: tr('Koordinasi reporter, monitoring berita, kualitas liputan.', 'Coordinating reporters, monitoring the news, keeping coverage quality up.') },
-  { years: '2019–2020', outlet: 'detikNews', title: tr('Wakil Redaktur Pelaksana', 'Deputy Managing Editor'), desc: tr('Daerah & Non Biro: mengelola pemberitaan daerah.', 'Regional & Non-Bureau: managing regional coverage.') },
-  { years: tr('2020 — kini', '2020 — present'), outlet: 'VOI', title: tr('Redaktur Pelaksana', 'Managing Editor'), desc: tr('Memimpin alur editorial, agenda, dan produksi berita.', 'Leading the editorial workflow, news agenda, and production.'), current: true },
+  { years: '2016–2017', outlet: 'detikNews', title: tr('Redaktur Nasional', 'National Desk Editor'), desc: tr('Menyunting naskah, menajamkan sudut berita, dan menjaga standar editorial.', 'Editing copy, developing angles, upholding editorial standards.') },
+  { years: '2017–2018', outlet: 'detikNews', title: tr('Koordinator Peliputan', 'Coverage Coordinator'), desc: tr('Mengoordinasikan reporter, memantau arus berita, dan menjaga kualitas liputan.', 'Coordinating reporters, monitoring the news, keeping coverage quality up.') },
+  { years: '2019–2020', outlet: 'detikNews', title: tr('Wakil Redaktur Pelaksana', 'Deputy Managing Editor'), desc: tr('Daerah & Non Biro: mengelola pemberitaan dari biro dan kontributor daerah.', 'Regional & Non-Bureau: managing regional coverage.') },
+  { years: tr('2020 — kini', '2020 — present'), outlet: 'VOI', title: tr('Redaktur Pelaksana', 'Managing Editor'), desc: tr('Memimpin alur editorial, agenda pemberitaan, dan produksi berita.', 'Leading the editorial workflow, news agenda, and production.'), current: true },
 ];
 
 export const publications = [
   { outlet: 'VOI', period: tr('2020 — kini', '2020 — present'), note: tr('Redaktur pelaksana', 'Managing editor'), href: '#', image: '/images/generated/newsroom-malam.webp' },
-  { outlet: 'detikNews', period: '2012 — 2020', note: tr('5 peran', '5 roles'), href: '#', image: '/images/generated/rapat-redaksi.webp' },
+  { outlet: 'detikNews', period: '2012 — 2020', note: tr('5 jabatan', '5 roles'), href: '#', image: '/images/generated/rapat-redaksi.webp' },
   { outlet: 'Okezone.com', period: '2008 — 2012', note: 'Reporter', href: '#', image: '/images/generated/doorstop.webp' },
 ];
 
@@ -117,7 +117,7 @@ export const voi = {
     users: 1121,
     devices: [[tr('Ponsel', 'Mobile'), 82.8], ['Desktop', 16.1], ['Tablet', 1.1]],
     country: 'Indonesia',
-    top: { title: tr('Gempa Kuta Selatan Bali, Magnitudo 4,8', 'Magnitude 4.8 Earthquake Hits South Kuta, Bali'), note: tr('Edisi Inggris 194 pengguna, edisi Indonesia 75', 'English edition 194 users, Indonesian edition 75') },
+    top: { title: tr('Gempa Kuta Selatan Bali, Magnitudo 4,8', 'Magnitude 4.8 Earthquake Hits South Kuta, Bali'), note: tr('Dibaca 194 pengguna di edisi Inggris dan 75 pengguna di edisi Indonesia', 'English edition 194 users, Indonesian edition 75') },
   },
   overview: {
     date: tr('16 Februari 2023', '16 February 2023'), pv: 64902, unique: 57210, read: tr('2 menit 1 detik', '2 min 1 sec'),
@@ -142,6 +142,6 @@ export const output = [
 
 
 export const ticker = tr(
-  ['Agenda redaksi', 'Penyuntingan', 'Pengembangan angle', 'Koordinasi liputan', 'Daerah & non-biro', 'Berita nasional', 'Sejak 2008'],
+  ['Agenda redaksi', 'Penyuntingan', 'Penajaman sudut berita', 'Koordinasi liputan', 'Daerah & non-biro', 'Berita nasional', 'Sejak 2008'],
   ['News agenda', 'Editing', 'Angle development', 'Coverage coordination', 'Regional & non-bureau', 'National news', 'Since 2008'],
 );

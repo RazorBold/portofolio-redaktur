@@ -125,17 +125,17 @@ function mapPanel(b) {
     const text = `${esc(name)}${count ? ` <tspan class="place__count">×${count}</tspan>` : ''}`;
     return `<g class="place place--${type}${biro ? ' place--biro' : ''}" transform="translate(${x} ${y})"><g class="place__mark">${mark}</g><text class="place__name" x="${dx + Math.sign(dx) * push}" y="${dy + Math.sign(dy) * push}" text-anchor="${anchor}">${text}</text></g>`;
   }).join('');
-  const staff = tr(`SDM ${esc(b.name)}`, `${esc(b.name)} staff`);
+  const staff = tr(`Tim ${esc(b.name)}`, `${esc(b.name)} staff`);
   const list = (t) => b.places.filter((q) => q.type === t).map((q) => q.name).join(', ');
   return `
     <section class="panel map" aria-label="${staff}">
       <div class="panel__top"><h5 class="panel__tab">${staff}</h5>
       <ul class="map__legend">
-        <li><i class="lg lg--r">d</i>${tr('Kota liputan (reporter/kontributor)', 'Covered city (reporter/contributor)')}</li>
-        <li><i class="lg lg--x"></i>${tr('Kosong', 'Vacant')}</li>
+        <li><i class="lg lg--r">d</i>${tr('Kota dengan reporter/kontributor', 'Covered city (reporter/contributor)')}</li>
+        <li><i class="lg lg--x"></i>${tr('Belum terisi', 'Vacant')}</li>
         <li><i class="lg lg--biro"></i>${tr('Kantor biro', 'Bureau office')}</li>
       </ul></div>
-      <svg class="map__svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="${tr('Peta', 'Map of')} ${esc(b.area)}. ${list('r') ? `${tr('Reporter', 'Reporters')}: ${esc(list('r'))}. ` : ''}${tr('Kontributor', 'Contributors')}: ${esc(list('k'))}. ${tr('Kosong', 'Vacant')}: ${esc(list('x'))}.">${land}${places}</svg>
+      <svg class="map__svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="${tr('Peta', 'Map of')} ${esc(b.area)}. ${list('r') ? `${tr('Reporter', 'Reporters')}: ${esc(list('r'))}. ` : ''}${tr('Kontributor', 'Contributors')}: ${esc(list('k'))}. ${tr('Belum terisi', 'Vacant')}: ${esc(list('x'))}.">${land}${places}</svg>
       <div class="map__stats">
         <p><strong>${esc(b.name)}</strong>(${esc(b.area)})</p>
         <p><b>${b.cities}</b> ${tr('kota', 'cities')}</p><p><b>${b.reporters}</b> ${tr('reporter', 'reporters')}</p><p><b>${b.contributors}</b> ${tr('kontributor', 'contributors')}</p>
@@ -164,7 +164,7 @@ function chartSvg(b) {
 function renderCases() {
   $('[data-maps]').innerHTML = bureaus.map(mapPanel).join('');
   $('[data-charts]').innerHTML = bureaus.map((b) => `<figure class="chart"><figcaption>${esc(b.name)}</figcaption>${chartSvg(b)}</figure>`).join('');
-  $('[data-growth]').innerHTML = `<p class="growth__label">${tr('Kenaikan Januari dibanding Desember', 'January growth over December')}</p>` + bureaus.map((b) => `
+  $('[data-growth]').innerHTML = `<p class="growth__label">${tr('Kenaikan Januari 2020 dibanding Desember 2019', 'January 2020 growth over December 2019')}</p>` + bureaus.map((b) => `
     <div class="growth__set">
       <p class="growth__name">${esc(b.city)}</p>
       <span class="badge"><small>UV</small><span>+${count(b.growth.uv)}%</span></span>
@@ -173,43 +173,43 @@ function renderCases() {
 
   const { realtime: rt, overview: ov, now } = voi;
   $('[data-voi]').innerHTML = `
-    <section class="panel screen" aria-label="Realtime GA4">
-      <div class="panel__top"><h5 class="panel__tab">Realtime GA4</h5></div>
+    <section class="panel screen" aria-label="${tr('Pembaca real-time', 'Realtime GA4')}">
+      <div class="panel__top"><h5 class="panel__tab">${tr('Pembaca real-time', 'Realtime GA4')}</h5></div>
       <div class="screen__body">
-        <p class="kpi kpi--xl">${icon(ico.users)}<strong>${count(rt.users)}</strong><span>${tr('pengguna dalam<br />30 menit terakhir', 'users in the<br />last 30 minutes')}</span></p>
+        <p class="kpi kpi--xl">${icon(ico.users)}<strong>${count(rt.users)}</strong><span>${tr('pembaca aktif dalam<br />30 menit terakhir', 'users in the<br />last 30 minutes')}</span></p>
         <div class="devices">
           <p class="devices__bar" aria-hidden="true">${rt.devices.map(([, v], i) => `<i class="devices__seg devices__seg--${i}" style="--w:${v}%"></i>`).join('')}</p>
           <ul class="devices__list">${rt.devices.map(([k, v], i) => `<li><i class="devices__key devices__key--${i}"></i>${esc(k)} <strong>${count(v, 1)}%</strong></li>`).join('')}</ul>
         </div>
-        <p class="kpi">${icon(ico.pin)}<strong>${esc(rt.country)}</strong><span>${tr('pembaca terpusat, sedikit dari Malaysia dan Jepang', 'most readers, with a few from Malaysia and Japan')}</span></p>
-        <p class="callout">${icon(ico.doc)}<span>${tr('Berita teratas saat itu', 'Top story at the time')}<strong>${esc(rt.top.title)}</strong><em>${esc(rt.top.note)}</em></span></p>
+        <p class="kpi">${icon(ico.pin)}<strong>${esc(rt.country)}</strong><span>${tr('asal sebagian besar pembaca, sebagian kecil dari Malaysia dan Jepang', 'most readers, with a few from Malaysia and Japan')}</span></p>
+        <p class="callout">${icon(ico.doc)}<span>${tr('Berita terpopuler saat itu', 'Top story at the time')}<strong>${esc(rt.top.title)}</strong><em>${esc(rt.top.note)}</em></span></p>
       </div>
     </section>
-    <section class="panel screen" aria-label="Overview ${esc(ov.date)}">
-      <div class="panel__top"><h5 class="panel__tab">Overview · ${esc(ov.date)}</h5></div>
+    <section class="panel screen" aria-label="${tr('Ringkasan', 'Overview')} ${esc(ov.date)}">
+      <div class="panel__top"><h5 class="panel__tab">${tr('Ringkasan', 'Overview')} · ${esc(ov.date)}</h5></div>
       <div class="screen__body">
-        <p class="kpi kpi--row">${icon(ico.eye)}<strong>${count(ov.pv)}</strong><span>pageviews (PV)</span></p>
-        <p class="kpi kpi--row">${icon(ico.users)}<strong>${count(ov.unique)}</strong><span>${tr('pageviews unik', 'unique pageviews')}</span></p>
+        <p class="kpi kpi--row">${icon(ico.eye)}<strong>${count(ov.pv)}</strong><span>${tr('pageview (PV)', 'pageviews (PV)')}</span></p>
+        <p class="kpi kpi--row">${icon(ico.users)}<strong>${count(ov.unique)}</strong><span>${tr('pageview unik', 'unique pageviews')}</span></p>
         <p class="kpi kpi--row">${icon(ico.clock)}<strong>${esc(ov.read)}</strong><span>${tr('rata-rata waktu baca', 'average reading time')}</span></p>
         <div class="toplist">
-          <p class="toplist__head"><span>${tr('Artikel teratas hari itu', "That day's top articles")}</span><span>PV</span></p>
+          <p class="toplist__head"><span>${tr('Artikel terpopuler hari itu', "That day's top articles")}</span><span>PV</span></p>
           <ol>${ov.top.map(([t, pv, share], i) => `<li><span>${i + 1}.</span><span>${esc(t)}</span><strong>${count(pv)}<small>${num(share, 2)}%</small></strong></li>`).join('')}</ol>
         </div>
       </div>
     </section>
-    <section class="panel screen" aria-label="Realtime right now">
-      <div class="panel__top"><h5 class="panel__tab">Realtime · Right now</h5></div>
+    <section class="panel screen" aria-label="${tr('Pembaca real-time saat isu Desa Wadas', 'Realtime right now')}">
+      <div class="panel__top"><h5 class="panel__tab">${tr('Real-time · Isu Desa Wadas', 'Realtime · Right now')}</h5></div>
       <div class="screen__body">
         <div class="screen__trio">
-          <p class="kpi">${icon(ico.users)}<strong>${count(now.users)}</strong><span>${tr('pengguna aktif saat ini', 'active users right now')}</span></p>
-          <p class="kpi">${icon(ico.phone)}<strong>${count(now.mobile, 2)}%</strong><span>${tr('melalui ponsel', 'on mobile')}</span></p>
-          <p class="kpi">${icon(ico.layers)}<strong>${count(now.pages)}</strong><span>${tr('halaman tersebar', 'pages being read')}</span></p>
+          <p class="kpi">${icon(ico.users)}<strong>${count(now.users)}</strong><span>${tr('pembaca aktif pada saat itu', 'active users right now')}</span></p>
+          <p class="kpi">${icon(ico.phone)}<strong>${count(now.mobile, 2)}%</strong><span>${tr('membaca lewat ponsel', 'on mobile')}</span></p>
+          <p class="kpi">${icon(ico.layers)}<strong>${count(now.pages)}</strong><span>${tr('halaman sedang dibaca', 'pages being read')}</span></p>
         </div>
         <div class="issue">
-          <p class="issue__head">${tr('Isu yang dikawal', 'Issue in focus')}</p>
-          <p class="issue__big"><strong>${count(now.issue.articles)}</strong><span>${tr(`dari ${now.issue.of} artikel teratas saat itu membahas`, `of the ${now.issue.of} top articles at the time covered`)} <b>${esc(now.issue.topic)}</b></span></p>
+          <p class="issue__head">${tr('Isu yang dikawal redaksi', 'Issue in focus')}</p>
+          <p class="issue__big"><strong>${count(now.issue.articles)}</strong><span>${tr(`dari ${now.issue.of} artikel terpopuler saat itu membahas`, `of the ${now.issue.of} top articles at the time covered`)} <b>${esc(now.issue.topic)}</b></span></p>
           <p class="issue__dots" aria-hidden="true">${Array.from({ length: now.issue.of }, (_, i) => `<i class="${[3, 7, 16].includes(i) ? 'is-on' : ''}"></i>`).join('')}</p>
-          <p class="issue__note">${count(now.issue.users)} ${tr('pengguna aktif membaca ketiganya bersamaan.', 'active users were reading all three at once.')}</p>
+          <p class="issue__note">${count(now.issue.users)} ${tr('pembaca aktif sedang membuka ketiga artikel itu.', 'active users were reading all three at once.')}</p>
         </div>
       </div>
     </section>`;
@@ -249,7 +249,7 @@ function barsSvg(months, yMax, narrow) {
   const avgLine = `<line class="bars__avg" x1="${L}" x2="${W - R}" y1="${avgY}" y2="${avgY}"/>`;
   const px = r1(X(pi)), py = r1(Y(peak) - (narrow ? 28 : 30)), pw = narrow ? 78 : 104;
   const bx = Math.min(W - R - pw, Math.max(L, px - pw / 2));
-  const peakTag = `<g class="bars__peak"><rect x="${r1(bx)}" y="${py - 22}" width="${pw}" height="18" rx="3"/><text x="${r1(bx + pw / 2)}" y="${py - 9.5}">${tr('Puncak tertinggi', 'Highest peak')}</text><path d="M${px} ${py - 3}V${py + 4}M${px - 3} ${py + 1}L${px} ${py + 4}L${px + 3} ${py + 1}"/></g>`;
+  const peakTag = `<g class="bars__peak"><rect x="${r1(bx)}" y="${py - 22}" width="${pw}" height="18" rx="3"/><text x="${r1(bx + pw / 2)}" y="${py - 9.5}">${tr('Bulan tertinggi', 'Highest peak')}</text><path d="M${px} ${py - 3}V${py + 4}M${px - 3} ${py + 1}L${px} ${py + 4}L${px + 3} ${py + 1}"/></g>`;
 
   const label = `${tr('Jumlah berita per bulan', 'Stories per month')}: ${months.map((v, m) => `${BULAN[m]} ${num(v)}`).join(', ')}. ${tr('Puncak', 'Peak')} ${BULAN[pi]} ${num(peak)}, ${tr('rata-rata', 'average')} ${num(Math.round(avg))}.`;
   return `<svg class="bars__svg${narrow ? ' is-narrow' : ''}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${label}">${grid}${avgLine}${bars}${trend}${dots}${vals}${xs}${peakTag}</svg>`;
@@ -271,7 +271,7 @@ function renderOutput() {
       <li><button class="years__row" type="button" data-year-index="${i}" aria-pressed="false" data-cursor="Lihat">
         <span class="years__year">${y.year}${partial ? `<small>Jan–${BULAN[y.months.length - 1].slice(0, 3)}</small>` : ''}</span>
         <span class="years__track"><i class="years__bar" style="--w:${(t / tMax) * 100}%"></i></span>
-        <span class="years__total"><strong>${count(t)}</strong><small>±${num(Math.round(t / y.months.length))}/${tr('bulan', 'month')}</small></span>
+        <span class="years__total"><strong>${count(t)}</strong><small>${tr('rata-rata', 'avg')} ${num(Math.round(t / y.months.length))}/${tr('bulan', 'month')}</small></span>
       </button></li>`;
   }).join('');
 
@@ -279,9 +279,9 @@ function renderOutput() {
     <section class="panel years" aria-label="${tr('Berita per tahun', 'Stories per year')}">
       <div class="panel__top"><h5 class="panel__tab">${tr('Per tahun', 'By year')}</h5></div>
       <div class="years__body">
-        <p class="years__hero"><strong>${count(total)}</strong><span>${tr('berita dalam', 'stories over')} ${all.length} ${tr('bulan', 'months')}<br />${BULAN[0]} ${output[0].year} ${tr('sampai', 'to')} ${BULAN[last.months.length - 1]} ${last.year}</span></p>
+        <p class="years__hero"><strong>${count(total)}</strong><span>${tr('berita terbit dalam', 'stories over')} ${all.length} ${tr('bulan', 'months')}<br />${BULAN[0]} ${output[0].year} ${tr('hingga', 'to')} ${BULAN[last.months.length - 1]} ${last.year}</span></p>
         <p class="years__avg">${tr(`Rata-rata <strong>${num(avg)}</strong> berita per bulan, sekitar ${num(Math.round(avg / 30))} per hari.`, `An average of <strong>${num(avg)}</strong> stories a month, about ${num(Math.round(avg / 30))} a day.`)}</p>
-        <p class="years__hint">${tr('Pilih tahun untuk melihat grafiknya', 'Pick a year to see its chart')}</p>
+        <p class="years__hint">${tr('Klik tahun untuk melihat grafiknya', 'Pick a year to see its chart')}</p>
         <ul class="years__list">${years}</ul>
       </div>
     </section>
@@ -293,8 +293,8 @@ function renderOutput() {
       </div>
       <div class="bars__chart" data-bars></div>
       <ul class="bars__legend">
-        <li><i class="lg-bar"></i>${tr('Berita per bulan', 'Stories per month')}</li>
-        <li><i class="lg-bar lg-bar--peak"></i>${tr('Puncak tertinggi', 'Highest peak')}</li>
+        <li><i class="lg-bar"></i>${tr('Berita terbit per bulan', 'Stories per month')}</li>
+        <li><i class="lg-bar lg-bar--peak"></i>${tr('Bulan tertinggi', 'Highest peak')}</li>
         <li><i class="lg-trend"></i>${tr('Garis tren', 'Trend line')}</li>
         <li><i class="lg-avg"></i><span data-bars-avg></span></li>
       </ul>
@@ -303,7 +303,7 @@ function renderOutput() {
   const draw = (i, animate) => {
     const y = output[i], t = sum(y.months), a = Math.round(t / y.months.length);
     const period = `${BULAN[0]}–${BULAN[y.months.length - 1]}`;
-    root.querySelector('[data-bars-title]').textContent = `${tr('Publikasi berita per bulan', 'Stories published per month')}, ${y.year}`;
+    root.querySelector('[data-bars-title]').textContent = `${tr('Jumlah berita terbit per bulan', 'Stories published per month')}, ${y.year}`;
     root.querySelector('[data-bars-meta]').innerHTML = `<span>${tr('Periode', 'Period')} ${period}</span><span>Total ${num(t)} ${tr('berita', 'stories')}</span><span>${tr(`Rata-rata ${num(a)} berita/bulan`, `Average ${num(a)} stories/month`)}</span>`;
     root.querySelector('[data-bars-avg]').textContent = tr(`Rata-rata (${num(a)} berita)`, `Average (${num(a)} stories)`);
     root.querySelector('[data-bars]').innerHTML = barsSvg(y.months, yMax, narrowMq.matches);
