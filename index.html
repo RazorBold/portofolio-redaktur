@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="id" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ferdinan — Redaktur Pelaksana</title>
+  <meta name="description" content="Portofolio Redaktur Pelaksana VOI: 18 tahun di ruang redaksi Okezone, detikNews, dan VOI." />
+  <meta name="theme-color" content="#0e4d3a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/images/generated/hero-desk.webp" />
+  <link rel="preload" as="image" href="/images/photos/profil-cutout.webp" />
+  <link rel="stylesheet" href="/src/styles/main.css" />
+</head>
+<body>
+  <a class="skip" href="#tentang">Lewati ke konten</a>
+
+  <!-- Preloader -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <span class="loader__count">0</span>
+      <span class="loader__label">Menyiapkan edisi hari ini</span>
+    </div>
+  </div>
+
+  <!-- Kursor kustom -->
+  <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Pratinjau gambar saat hover publikasi -->
+  <div class="pub-preview" aria-hidden="true"><img alt="" /></div>
+
+  <header class="nav" data-nav>
+    <a class="nav__brand" href="#top" data-cursor="Atas">Portofolio<span class="nav__rule"></span></a>
+    <nav class="nav__links" aria-label="Navigasi utama">
+      <a href="#tentang">About</a>
+      <a href="#karya">Portfolio</a>
+      <a href="#perjalanan">Experience</a>
+      <a href="#kontak">Contact</a>
+    </nav>
+    <a class="btn btn--light nav__cta" href="#kontak" data-magnetic>Hubungi saya <span aria-hidden="true">↗</span></a>
+    <button class="nav__menu" aria-expanded="false" aria-controls="menu" data-menu-toggle>Menu</button>
+  </header>
+
+  <div class="menu" id="menu" hidden>
+    <a href="#tentang">About</a>
+    <a href="#karya">Portfolio</a>
+    <a href="#perjalanan">Experience</a>
+    <a href="#kontak">Contact</a>
+  </div>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__stage" data-stage>
+        <img class="hero__bg" src="/images/generated/hero-desk.webp" alt="" />
+        <div class="hero__shade"></div>
+        <h1 class="hero__word" id="hero-title" data-hero-word aria-label="Redaktur Pelaksana">REDAKTUR</h1>
+        <div class="hero__person" data-person>
+          <!-- PLACEHOLDER: wajah buatan AI. Ganti file ini dengan foto asli (latar dihapus). -->
+          <img src="/images/photos/profil-cutout.webp" alt="Foto Ferdinan" />
+        </div>
+        <p class="hero__script script" data-hero-script aria-hidden="true">Pelaksana</p>
+      </div>
+
+      <div class="hero__copy">
+        <h2 class="hero__lede" data-hero-lede>Editorial leadership &amp; newsroom management</h2>
+        <p class="hero__text" data-hero-fade>18 tahun di ruang redaksi — dari reporter lapangan Okezone dan detikNews hingga memimpin alur editorial di VOI.</p>
+        <div class="hero__actions" data-hero-fade>
+          <a class="btn btn--light" href="#karya" data-magnetic data-cursor="Lihat">Lihat portofolio</a>
+          <a class="btn btn--ghost" href="#tentang" data-magnetic>Tentang saya</a>
+        </div>
+      </div>
+
+      <!-- Three.js: kartu pers berayun -->
+      <div class="press" data-press data-cursor="Putar">
+        <canvas class="press__canvas" aria-label="Kartu pers Redaktur Pelaksana. Klik untuk membalik." role="img"></canvas>
+      </div>
+      <p class="hero__hint" data-hero-fade>Gerakkan kursor atau klik kartunya</p>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker" aria-hidden="true"><div class="ticker__track" data-ticker></div></div>
+
+    <!-- TENTANG -->
+    <section class="about" id="tentang" aria-labelledby="about-title">
+      <span class="about__watermark" aria-hidden="true" data-watermark>EDITORIAL</span>
+      <div class="about__copy">
+        <p class="script about__script" aria-hidden="true">sejak 2008</p>
+        <h2 class="about__title" id="about-title" data-split>/ Tentang saya</h2>
+        <p class="about__text" data-reveal>Redaktur Pelaksana di VOI. Memimpin agenda pemberitaan, penyuntingan, dan pengembangan angle, serta mengoordinasikan produksi berita agar setiap tulisan terbit akurat, relevan, dan tepat waktu.</p>
+        <a class="btn btn--dark" href="#perjalanan" data-magnetic data-reveal>Lihat perjalanan karier</a>
+      </div>
+      <ul class="stats" data-stats></ul>
+      <figure class="polaroid" data-polaroid>
+        <svg class="polaroid__clip" viewBox="0 0 34 86" aria-hidden="true"><path d="M9 26V66a8 8 0 0 0 16 0V16a12 12 0 0 0-24 0v56a16 16 0 0 0 32 0V30" fill="none" stroke="#9AA0A6" stroke-width="3.2" stroke-linecap="round"/></svg>
+        <img src="/images/generated/rapat-redaksi.webp" alt="Suasana rapat redaksi" loading="lazy" />
+      </figure>
+    </section>
+
+    <!-- KEPEMIMPINAN -->
+    <section class="lead" aria-labelledby="lead-title">
+      <img class="lead__bg" src="/images/generated/newsroom-malam.webp" alt="" loading="lazy" data-parallax-bg />
+      <div class="lead__shade"></div>
+      <p class="script lead__script" aria-hidden="true" data-script-reveal>Kepemimpinan</p>
+      <div class="lead__head">
+        <h2 class="lead__title serif" id="lead-title" data-split>Menjaga arah berita, dari rapat agenda sampai tombol terbit.</h2>
+      </div>
+      <figure class="lead__photo" data-photo>
+        <img src="/images/generated/penyuntingan.webp" alt="Penyuntingan naskah dengan pena merah" loading="lazy" />
+      </figure>
+      <ol class="steps" data-steps></ol>
+    </section>
+
+    <!-- KARYA -->
+    <section class="works" id="karya" aria-labelledby="works-title">
+      <div class="works__mast">
+        <h2 class="works__word" id="works-title" data-mast aria-label="Karya jurnalistik">KARYA</h2>
+        <p class="script works__script" aria-hidden="true" data-script-reveal>Jurnalistik</p>
+        <p class="works__edition">Edisi pilihan, 2008–2026</p>
+      </div>
+      <div class="works__rule" data-rule></div>
+      <div class="works__grid">
+        <a class="story" data-story data-cursor="Baca"></a>
+        <ul class="clips" data-clips></ul>
+      </div>
+    </section>
+
+    <!-- PERJALANAN -->
+    <section class="journey" id="perjalanan" aria-labelledby="journey-title">
+      <span class="journey__bg" aria-hidden="true" data-journey-bg>2008—2026</span>
+      <p class="script journey__script" aria-hidden="true" data-script-reveal>Perjalanan</p>
+      <h2 class="journey__title serif" id="journey-title" data-split>Dari lapangan ke meja redaksi.</h2>
+      <div class="timeline">
+        <div class="timeline__line"><span data-line></span></div>
+        <ol class="timeline__list" data-timeline></ol>
+      </div>
+    </section>
+
+    <!-- PUBLIKASI -->
+    <section class="pubs" aria-labelledby="pubs-title">
+      <div class="pubs__list">
+        <h2 class="pubs__title" id="pubs-title">/ Publikasi <span class="script pubs__script" aria-hidden="true">arsip</span></h2>
+        <ul data-pubs></ul>
+      </div>
+      <aside class="edu" data-edu>
+        <h3 class="edu__label">Pendidikan</h3>
+        <p class="edu__degree serif" data-edu-degree></p>
+        <p class="edu__school" data-edu-school></p>
+        <h3 class="edu__label">Pengalaman organisasi</h3>
+        <p class="edu__org" data-edu-org></p>
+      </aside>
+    </section>
+
+    <!-- KONTAK -->
+    <section class="contact" id="kontak" aria-labelledby="contact-title">
+      <img class="contact__bg" src="/images/generated/meja-editor.webp" alt="" loading="lazy" data-parallax-bg />
+      <div class="contact__shade"></div>
+      <h2 class="contact__word" id="contact-title" data-contact-word aria-label="Hubungi">HUBUNGI</h2>
+      <p class="script contact__script" aria-hidden="true" data-script-reveal>mari bicara</p>
+      <dl class="contact__list">
+        <div><dt>Email</dt><dd><a href="#" data-email data-cursor="Tulis"></a></dd></div>
+        <div><dt>Telepon</dt><dd><a href="#" data-phone data-cursor="Telepon"></a></dd></div>
+      </dl>
+      <a class="btn btn--light" href="#" data-email-btn data-magnetic>Kirim email <span aria-hidden="true">↗</span></a>
+      <footer class="footer">
+        <p>© 2026 <span data-name></span> · Redaktur Pelaksana</p>
+        <ul data-socials></ul>
+      </footer>
+    </section>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
