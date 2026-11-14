@@ -74,7 +74,6 @@ export const publications = [
 export const bureaus = [
   {
     name: 'Biro Medan', area: 'Sumatra', shape: 'sumatra', cities: 11, reporters: 5, contributors: 5,
-    notes: ['Bandar Lampung dan Bengkulu masih kosong.', 'Kepala biro dan dua posisi editor belum terisi.'],
     places: [
       { name: 'Banda Aceh', at: [95.32, 5.55], type: 'r', label: 'r' },
       { name: 'Medan', at: [98.67, 3.59], type: 'r', label: 'r', count: 2, biro: true },
@@ -94,7 +93,6 @@ export const bureaus = [
   },
   {
     name: 'Biro Makassar', area: 'Sulawesi', shape: 'sulawesi', cities: 9, reporters: 3, contributors: 9,
-    notes: ['Gorontalo masih kosong.', 'Kepala biro belum terisi; dari dua posisi redaktur baru satu yang terisi.', 'Tiga reporter tercatat tanpa keterangan kota.'],
     places: [
       { name: 'Manado', at: [124.84, 1.47], type: 'k', label: 't' },
       { name: 'Palu', at: [119.87, -0.9], type: 'k', label: 'r' },
@@ -142,6 +140,5 @@ export const output = [
   { year: 2026, months: [1133, 1318, 1309, 1138, 964, 913, 1215, 804] },
 ];
 
-export const organisation = '[Organisasi profesi / komunitas jurnalis] — peran · tahun';
 
 export const ticker = ['Agenda redaksi', 'Penyuntingan', 'Pengembangan angle', 'Koordinasi liputan', 'Daerah & non-biro', 'Berita nasional', 'Sejak 2008'];

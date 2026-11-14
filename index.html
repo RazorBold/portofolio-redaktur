@@ -10,7 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="/images/generated/hero-desk.webp" />
-  <link rel="preload" as="image" href="/images/photos/profil-cutout.webp" />
   <link rel="stylesheet" href="/src/styles/main.css" />
 </head>
 <body>
@@ -54,18 +53,22 @@
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__stage" data-stage>
-        <img class="hero__bg" src="/images/generated/hero-desk.webp" alt="" />
-        <div class="hero__shade"></div>
-        <h1 class="hero__word" id="hero-title" data-hero-word aria-label="Redaktur Pelaksana">REDAKTUR</h1>
-        <div class="hero__person" data-person>
-          <!-- PLACEHOLDER: wajah buatan AI. Ganti file ini dengan foto asli (latar dihapus). -->
-          <img src="/images/photos/profil-cutout.webp" alt="Foto Ferdinan" />
+        <!-- Meja: foto latar + properti HTML di atasnya, bergerak sebagai satu lapisan -->
+        <div class="hero__desk" data-desk>
+          <img class="hero__bg" src="/images/generated/hero-desk.webp" alt="" />
+          <div class="hero__shade"></div>
+          <!-- Tumpukan buku; tepi foto dipudarkan agar menyatu dengan dinding dan meja di latar -->
+          <img class="books" data-books src="/images/generated/buku-redaksi.webp" alt="" width="1200" height="600" />
+
+          <svg class="mug-logo" data-mug viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l6 8c0 5-3 9-6 12-3-3-6-7-6-12z"/><path d="M12 2v9"/><circle cx="12" cy="12.5" r="1.4"/></svg>
         </div>
-        <p class="hero__script script" data-hero-script aria-hidden="true">Pelaksana</p>
+        <h1 class="hero__word" id="hero-title" data-hero-word aria-label="Ferdinan, Redaktur Pelaksana">FERDINAN</h1>
+        <span class="hero__glow" data-hero-glow aria-hidden="true"></span>
       </div>
 
       <div class="hero__copy">
         <h2 class="hero__lede" data-hero-lede>Editorial leadership &amp; newsroom management</h2>
+        <span class="hero__rule" data-hero-fade aria-hidden="true"></span>
         <p class="hero__text" data-hero-fade>18 tahun di ruang redaksi — dari reporter lapangan Okezone dan detikNews hingga memimpin alur editorial di VOI.</p>
         <div class="hero__actions" data-hero-fade>
           <a class="btn btn--light" href="#karya" data-magnetic data-cursor="Lihat">Lihat portofolio</a>
@@ -75,7 +78,7 @@
 
       <!-- Three.js: kartu pers berayun -->
       <div class="press" data-press data-cursor="Putar">
-        <canvas class="press__canvas" aria-label="Kartu pers Redaktur Pelaksana. Klik untuk membalik." role="img"></canvas>
+        <canvas class="press__canvas" aria-label="Kartu portofolio berayun di tali. Klik untuk membalik." role="img"></canvas>
       </div>
       <p class="hero__hint" data-hero-fade>Gerakkan kursor atau klik kartunya</p>
     </section>
@@ -103,7 +106,6 @@
     <section class="lead" aria-labelledby="lead-title">
       <img class="lead__bg" src="/images/generated/newsroom-malam.webp" alt="" loading="lazy" data-parallax-bg />
       <div class="lead__shade"></div>
-      <p class="script lead__script" aria-hidden="true" data-script-reveal>Kepemimpinan</p>
       <div class="lead__head">
         <h2 class="lead__title serif" id="lead-title" data-split>Menjaga arah berita, dari rapat agenda sampai tombol terbit.</h2>
       </div>
@@ -149,11 +151,11 @@
         <div class="case__maps">
           <aside class="context" data-reveal>
             <h5 class="context__title script">Konteks</h5>
-            <p>Laporan internal yang dikirim lewat email ke Ferdinan. Isinya pemetaan SDM, jangkauan liputan, dan performa pembaca dua biro daerah detikcom: Biro Medan (Sumatra) dan Biro Makassar (Sulawesi). Dari sini terlihat kekuatan yang ada, capaian trafik, dan posisi yang masih perlu diisi.</p>
+            <p>Sebagai Wakil Redaktur Pelaksana Daerah &amp; Non Biro detikcom, Ferdinan membawahi dua biro sekaligus: <strong>Biro Medan</strong> untuk Sumatra dan <strong>Biro Makassar</strong> untuk Sulawesi.</p>
+            <p>Semua kota di peta ini berada di bawah koordinasinya: 20 kota, 8 reporter, dan 14 kontributor. Laporan internal ini dikirim kepadanya untuk memetakan kekuatan tim, capaian trafik, dan posisi yang masih perlu diisi.</p>
           </aside>
           <div class="maps" data-maps></div>
         </div>
-        <p class="case__caption">Peta skematis, tidak berskala: jangkauan liputan sekaligus kebutuhan pengisian SDM.</p>
 
         <div class="case__data">
           <section class="panel panel--chart" aria-labelledby="chart-title">
@@ -211,8 +213,6 @@
         <h3 class="edu__label">Pendidikan</h3>
         <p class="edu__degree serif" data-edu-degree></p>
         <p class="edu__school" data-edu-school></p>
-        <h3 class="edu__label">Pengalaman organisasi</h3>
-        <p class="edu__org" data-edu-org></p>
       </aside>
     </section>
 
@@ -221,7 +221,7 @@
       <img class="contact__bg" src="/images/generated/meja-editor.webp" alt="" loading="lazy" data-parallax-bg />
       <div class="contact__shade"></div>
       <h2 class="contact__word" id="contact-title" data-contact-word aria-label="Hubungi">HUBUNGI</h2>
-      <p class="script contact__script" aria-hidden="true" data-script-reveal>mari bicara</p>
+      <p class="script contact__script" aria-hidden="true" data-script-reveal>contact person</p>
       <dl class="contact__list">
         <div><dt>Email</dt><dd><a href="#" data-email data-cursor="Tulis"></a></dd></div>
         <div><dt>Telepon</dt><dd><a href="#" data-phone data-cursor="Telepon"></a></dd></div>

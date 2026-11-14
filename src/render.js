@@ -1,4 +1,4 @@
-import { profile, stats, workflow, leadStory, clippings, career, publications, organisation, ticker, bureaus, voi, output } from './data/content.js';
+import { profile, stats, workflow, leadStory, clippings, career, publications, ticker, bureaus, voi, output } from './data/content.js';
 import { maps } from './data/maps.js';
 
 const $ = (s) => document.querySelector(s);
@@ -70,7 +70,6 @@ export function render() {
 
   $('[data-edu-degree]').textContent = profile.education.degree;
   $('[data-edu-school]').textContent = profile.education.school;
-  $('[data-edu-org]').textContent = organisation;
 
   const mail = `mailto:${profile.email}`;
   const email = $('[data-email]'); email.href = mail; email.textContent = profile.email;
@@ -130,7 +129,6 @@ function mapPanel(b) {
         <p><strong>${esc(b.name)}</strong>(${esc(b.area)})</p>
         <p><b>${b.cities}</b> kota</p><p><b>${b.reporters}</b> reporter</p><p><b>${b.contributors}</b> kontributor</p>
       </div>
-      <ul class="map__notes">${b.notes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>
     </section>`;
 }
 

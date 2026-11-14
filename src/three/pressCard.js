@@ -14,40 +14,50 @@ function roundRect(ctx, x, y, w, h, r) {
   ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
 }
 
-function loadImage(src) {
-  return new Promise((res) => { const i = new Image(); i.onload = () => res(i); i.onerror = () => res(null); i.src = src; });
+// Ikon garis (viewBox 24×24), sama gayanya dengan ikon di halaman
+const ICONS = {
+  nib: 'M12 2l6 8c0 5-3 9-6 12-3-3-6-7-6-12z M12 2v9',
+  paper: 'M4 5h13v14H6a2 2 0 0 1-2-2V5z M17 9h3v8a2 2 0 0 1-2 2h-1 M7 9h7 M7 12h7 M7 15h4',
+  layers: 'M12 3l9 5-9 5-9-5 9-5z M3 13l9 5 9-5',
+  screen: 'M3 4h18v12H3z M8 20h8 M12 16v4',
+};
+
+function icon(ctx, d, x, y, size, color, width = 1.8) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(size / 24, size / 24);
+  ctx.strokeStyle = color; ctx.lineWidth = width; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  ctx.stroke(new Path2D(d)); ctx.restore();
 }
 
-async function drawFront(photo) {
+function drawFront() {
   const c = document.createElement('canvas'); c.width = W * PX; c.height = H * PX;
   const x = c.getContext('2d');
   roundRect(x, 0, 0, c.width, c.height, 60); x.fillStyle = COLORS.paper; x.fill();
   x.save(); x.clip();
   // pita bawah
-  x.fillStyle = COLORS.emerald; x.fillRect(0, c.height - 150, c.width, 150);
+  x.fillStyle = COLORS.emerald; x.fillRect(0, c.height - 170, c.width, 170);
   x.restore();
   x.lineWidth = 20; x.strokeStyle = '#ffffff'; roundRect(x, 10, 10, c.width - 20, c.height - 20, 52); x.stroke();
   // slot tali
   x.fillStyle = '#d1cec8'; roundRect(x, c.width / 2 - 110, 54, 220, 36, 18); x.fill();
   // judul
-  x.fillStyle = COLORS.ink; x.font = '900 92px Inter'; x.textBaseline = 'alphabetic';
-  x.fillText('REDAKTUR', 86, 220); x.fillText('PELAKSANA', 86, 312);
-  x.font = '700 44px Inter'; x.textAlign = 'right'; x.fillText('2026', c.width - 86, 312); x.textAlign = 'left';
-  // foto
-  const fx = c.width / 2 - 190, fy = 360, fw = 380, fh = 410;
-  x.save(); roundRect(x, fx, fy, fw, fh, 30); x.fillStyle = COLORS.emerald; x.fill(); x.clip();
-  if (photo) { const s = (fw * 1.55) / photo.width; x.drawImage(photo, fx + fw / 2 - (photo.width * s) / 2, fy + 18, photo.width * s, photo.height * s); }
-  x.restore();
-  // baris data
-  const rows = [['NAMA', profile.name], ['MEDIA', profile.company], ['FOKUS', 'Manajemen Redaksi'], ['KONTAK', profile.email]];
-  rows.forEach(([k, v], i) => {
-    const y = 860 + i * 78;
-    x.fillStyle = COLORS.line; x.fillRect(86, y + 26, c.width - 172, 3);
-    x.fillStyle = COLORS.ink; x.font = '800 34px Inter'; x.fillText(k, 86, y);
-    x.font = `400 ${v.length > 22 ? 28 : 34}px Inter`; x.textAlign = 'right'; x.fillText(v, c.width - 86, y); x.textAlign = 'left';
+  x.fillStyle = COLORS.ink; x.textBaseline = 'alphabetic';
+  x.font = '900 104px Inter'; x.fillText('PORTOFOLIO', 80, 236);
+  x.font = '700 40px Inter'; x.textAlign = 'right'; x.fillText('2026', c.width - 86, 300); x.textAlign = 'left';
+  // lambang pena
+  const s = 300, ex = c.width / 2 - s / 2, ey = 340;
+  roundRect(x, ex, ey, s, s, 40); x.fillStyle = COLORS.emerald; x.fill();
+  icon(x, ICONS.nib, ex + 60, ey + 54, 180, COLORS.paper, 1.6);
+  x.beginPath(); x.arc(ex + s / 2, ey + 54 + 12.5 * 7.5, 13, 0, Math.PI * 2); x.fillStyle = COLORS.paper; x.fill();
+  // tiga bidang keahlian
+  const rows = [[ICONS.paper, 'Kepemimpinan Editorial'], [ICONS.layers, 'Manajemen Redaksi'], [ICONS.screen, 'Media Digital']];
+  rows.forEach(([d, label], i) => {
+    const y = 760 + i * 118;
+    icon(x, d, 96, y - 46, 58, COLORS.ink, 2);
+    x.fillStyle = COLORS.ink; x.font = '600 48px Inter'; x.fillText(label, 186, y);
+    if (i < rows.length - 1) { x.fillStyle = COLORS.line; x.fillRect(86, y + 44, c.width - 172, 3); }
   });
-  x.fillStyle = COLORS.paper; x.font = '800 46px Inter'; x.textAlign = 'center';
-  x.fillText(`PRESS · ${profile.company}`, c.width / 2, c.height - 58);
+  x.fillStyle = COLORS.paper; x.font = '800 50px Inter'; x.textAlign = 'center';
+  x.fillText('PORTOFOLIO PROFESIONAL', c.width / 2, c.height - 66);
   return c;
 }
 
@@ -90,11 +100,10 @@ export async function initPressCard(container, { reduced }) {
 
   const card = new THREE.Group(); card.position.y = -STRAP - 0.42; pivot.add(card);
   await document.fonts.ready;
-  await Promise.all(['900 92px Inter', '800 34px Inter', '400 170px "Great Vibes"'].map((f) => document.fonts.load(f)));
-  const photo = await loadImage('/images/photos/profil-cutout.webp');
+  await Promise.all(['900 104px Inter', '600 48px Inter', '800 50px Inter', '400 170px "Great Vibes"'].map((f) => document.fonts.load(f)));
   const tex = (cv) => { const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = renderer.capabilities.getMaxAnisotropy(); return t; };
   const geo = new THREE.PlaneGeometry(W, H);
-  const front = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ map: tex(await drawFront(photo)), alphaTest: 0.5, roughness: 0.55 }));
+  const front = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ map: tex(drawFront()), alphaTest: 0.5, roughness: 0.55 }));
   const back = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ map: tex(drawBack()), alphaTest: 0.5, roughness: 0.55 }));
   front.position.set(0, -H / 2, 0.012); back.position.set(0, -H / 2, -0.012); back.rotation.y = Math.PI;
   card.add(front, back);
