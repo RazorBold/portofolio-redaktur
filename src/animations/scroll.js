@@ -180,7 +180,7 @@ function contact() {
   const chars = new SplitText('[data-contact-word]', { type: 'chars', charsClass: 'char' }).chars;
   $('[data-contact-word]').classList.add('is-split');
   gsap.from(chars, { yPercent: 100, opacity: 0, rotate: 6, duration: 1.2, ease: 'expo.out', stagger: 0.06, scrollTrigger: { trigger: '.contact', start: 'top 70%' } });
-  gsap.from('.contact__list > div, .contact > .btn', { y: 30, opacity: 0, stagger: 0.1, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.contact__list', start: 'top 90%' } });
+  gsap.from('.contact__list > div, .contact__actions > .btn', { y: 30, opacity: 0, stagger: 0.1, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.contact__list', start: 'top 90%' } });
 }
 
 // Nav: latar muncul setelah hero, sembunyi saat scroll turun, tampil saat scroll naik

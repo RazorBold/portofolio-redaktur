@@ -85,7 +85,10 @@ export function render() {
   } else {
     btn.href = mail;
   }
-  const phone = $('[data-phone]'); phone.href = `tel:${profile.phoneHref}`; phone.textContent = profile.phone;
+  // Nomor dan tombol WhatsApp membuka chat dengan sapaan yang sudah terisi
+  const wa = `https://wa.me/${profile.phoneHref.replace(/\D/g, '')}?text=${encodeURIComponent(tr('Halo Ferdinan, ', 'Hello Ferdinan, '))}`;
+  const phone = $('[data-phone]'); phone.href = wa; phone.target = '_blank'; phone.rel = 'noopener'; phone.textContent = profile.phone;
+  $('[data-wa-btn]').href = wa;
   $('[data-name]').textContent = profile.name;
   $('[data-socials]').innerHTML = profile.socials.map((s) => `<li><a href="${s.href}">${esc(s.label)}</a></li>`).join('');
 }
