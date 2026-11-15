@@ -53,7 +53,7 @@ export const career = [
   { years: '2008–2012', outlet: 'Okezone.com', title: 'Reporter', desc: tr('Peliputan, wawancara, riset, dan produksi berita digital.', 'Reporting, interviews, research, and digital news production.') },
   { years: '2012–2016', outlet: 'detikNews', title: 'Reporter', desc: tr('Liputan lapangan, verifikasi informasi, dan penulisan berita.', 'Field reporting, fact verification, and news writing.') },
   { years: '2016–2017', outlet: 'detikNews', title: tr('Redaktur Nasional', 'National Desk Editor'), desc: tr('Menyunting naskah, menajamkan sudut berita, dan menjaga standar editorial.', 'Editing copy, developing angles, upholding editorial standards.') },
-  { years: '2017–2018', outlet: 'detikNews', title: tr('Koordinator Peliputan', 'Coverage Coordinator'), desc: tr('Mengoordinasikan reporter, memantau arus berita, dan menjaga kualitas liputan.', 'Coordinating reporters, monitoring the news, keeping coverage quality up.') },
+  { years: '2017–2019', outlet: 'detikNews', title: tr('Koordinator Peliputan', 'Coverage Coordinator'), desc: tr('Mengoordinasikan reporter, memantau arus berita, dan menjaga kualitas liputan.', 'Coordinating reporters, monitoring the news, keeping coverage quality up.') },
   { years: '2019–2020', outlet: 'detikNews', title: tr('Wakil Redaktur Pelaksana', 'Deputy Managing Editor'), desc: tr('Daerah & Non Biro: mengelola pemberitaan dari biro dan kontributor daerah.', 'Regional & Non-Bureau: managing regional coverage.') },
   { years: tr('2020 — kini', '2020 — present'), outlet: 'VOI', title: tr('Redaktur Pelaksana', 'Managing Editor'), desc: tr('Memimpin alur editorial, agenda pemberitaan, dan produksi berita.', 'Leading the editorial workflow, news agenda, and production.'), current: true },
 ];
